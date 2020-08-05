@@ -13,6 +13,7 @@ app.get("/api/config", (req,res) => {
         success:true
     });
 });
+app.get
 
 app.use(express.static("public"));
 
