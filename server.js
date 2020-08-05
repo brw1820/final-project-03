@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 
@@ -13,11 +14,18 @@ app.get("/api/config", (req,res) => {
         success:true
     });
 });
-app.get
+
+app.get("*", (req,res) => {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"))
+});
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/project-3", {
+if(process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/final-project-03", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 }).then(() =>   {
