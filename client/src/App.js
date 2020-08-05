@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
 import axios from "axios";
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import Home from "/src/containers/Home/Home";
-import NoMatch from "./src/containers/NoMatch/NoMatch";
+import Home from "./containers/Home/Home.jsx";
+import NoMatch from "./containers/NoMatch/NoMatch";
 
 function App() {
   useEffect(()  =>  {
